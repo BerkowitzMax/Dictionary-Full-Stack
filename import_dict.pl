@@ -14,7 +14,8 @@ use Data::Dumper;
 my $dict;
 my $file = $ARGV[0];
 my $word_count = 0;
-my %letters = ();
+my @words;
+my %letters = (); # letter : [word list]
 
 # split data into buckets based 
 # on first character
@@ -30,15 +31,16 @@ sub grep_push {
 }
 
 open($dict, "<$file") or die "Couldn't open $file, $!";
+
+ # add each word into a single array
 while (<$dict>) {
-	my @line_splitter = split(' ', $_); # break line of words into array
-	$_ = lc for @line_splitter; # set each word to lowercase
-
-	grep_push(@line_splitter); # push to corresponding bucket
-
-	$word_count += scalar @line_splitter; # track number of words in file
+	push( @words, split(' ', $_) );
 }
 close($dict);
+$word_count = scalar @words;
+
+$_ = lc for @words; # set each word to lowercase
+grep_push(@words); # push to corresponding bucket
 
 print Dumper(\%letters);
 print "$word_count\n";
