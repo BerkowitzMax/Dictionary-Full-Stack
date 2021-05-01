@@ -1,4 +1,6 @@
 # Dictionary-Full-Stack
+Full stack project work-in-progress. 
+
 ### MySQL Schema
 ```
 create table dict_list
