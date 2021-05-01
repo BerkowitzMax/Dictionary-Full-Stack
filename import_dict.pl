@@ -3,8 +3,8 @@
 ###################################
 # Accepts text file arg.
 # Places words into buckets based 
-# first character. Populates
-# As records in MySQL letter tables
+# on first character. Populates
+# as records in MySQL letter tables
 ###################################
 use strict;
 use warnings;
