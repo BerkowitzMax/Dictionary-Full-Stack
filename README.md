@@ -7,7 +7,7 @@ create table dict_list
 (
 id INT unsigned NOT NULL AUTO_INCREMENT,
 name VARCHAR(150),
-length INT unsigned NOT NULL,
+length INT unsigned,
 lang VARCHAR(150) NOT NULL,
 path VARCHAR(150) NOT NULL,
 PRIMARY KEY (id)
@@ -17,7 +17,7 @@ create table letter_a
 (
 word_id INT unsigned NOT NULL AUTO_INCREMENT,
 word VARCHAR(150) NOT NULL,
-length INT unsigned NOT NULL,
+occurrences INT unsigned NOT NULL,
 dict_id INT unsigned NOT NULL,
 lang VARCHAR(150) NOT NULL,
 PRIMARY KEY (word_id),
