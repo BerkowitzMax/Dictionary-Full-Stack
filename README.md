@@ -21,7 +21,7 @@ occurrences INT unsigned NOT NULL,
 dict_id INT unsigned NOT NULL,
 lang VARCHAR(150) NOT NULL,
 PRIMARY KEY (word_id),
-FOREIGN KEY (dict_id) REFERENCES dict_list(id)
+FOREIGN KEY (dict_id) REFERENCES dict_list(id) ON DELETE CASCADE
 );
 ```
 
