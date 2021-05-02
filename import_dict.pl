@@ -76,18 +76,16 @@ $sth = $dbh->prepare(q/UPDATE dict_list SET length = ? WHERE id = ?/);
 $sth->execute($word_count, $dict_ID);
 print("Number of words in file: $word_count\n");
 
-
-# prepared statement for populating letter tables
-$sth = $dbh->prepare(
-			q/INSERT INTO letter_/.$first_char.q/(word, occurrences, dict_id, lang)
-		    VALUES (?,?,?,?)/);
-
 # iterate through each letter container
 print("Successful insert [");
 foreach my $key (keys %letters) {
 	my $first_char = substr($key, 0, 1);
 	my $num_occur = $letters{ $key };
 
+	# prepared statement for populating letter tables
+	$sth = $dbh->prepare(
+			q/INSERT INTO letter_/.$first_char.q/(word, occurrences, dict_id, lang)
+			VALUES (?,?,?,?)/);
 	if ($sth->execute($key, $num_occur, $dict_ID, $lang)) {
 		print(".");
 	}
