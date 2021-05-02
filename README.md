@@ -25,4 +25,4 @@ FOREIGN KEY (dict_id) REFERENCES dict_list(id)
 );
 ```
 
-`perl import_dict.pl file.txt` accepts file.txt arg and inserts the words into an associated letters hash which uses parameterized queries to update the database.
+`perl import_dict.pl <file_name> <name> <language>` accepts 3 arguments describing a dictionary and inserts words into an associated letters hash which uses prepared statements to update the database.
