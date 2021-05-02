@@ -25,4 +25,4 @@ FOREIGN KEY (dict_id) REFERENCES dict_list(id) ON DELETE CASCADE
 );
 ```
 
-`perl import_dict.pl <file_name> <name> <language>` accepts 3 arguments describing a dictionary and inserts words into an associated letters hash which uses prepared statements to update the database.
+`perl import_dict.pl <file_name> <name> <language>` accepts 3 arguments describing a dictionary and inserts words into an associated letters hash which uses prepared statements to efficiently and safely update the database.
